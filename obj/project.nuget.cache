@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "djNaFwhqgbU=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\murga\\Desktop\\MurisHaseljic472\\MurisHaseljic472.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\murga\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1015",
+      "level": "Error",
+      "message": "The following PackageReference item(s) do not have a version specified: Microsoft.Maui.Controls, Microsoft.Maui.Controls.Compatibility",
+      "projectPath": "C:\\Users\\murga\\Desktop\\MurisHaseljic472\\MurisHaseljic472.csproj",
+      "filePath": "C:\\Users\\murga\\Desktop\\MurisHaseljic472\\MurisHaseljic472.csproj",
+      "targetGraphs": []
+    }
+  ]
+}

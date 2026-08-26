@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:MurisHaseljic472"
+            x:Class="MurisHaseljic472.SearchPage"
+            BackgroundColor="#F8F9FA">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="15">
+
+            <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" HeightRequest="60">
+                <Image Source="logo.png" WidthRequest="50" HeightRequest="50" Aspect="AspectFit"/>
+                <Label Text="Art Institute of Chicago" FontSize="Medium" FontAttributes="Bold" TextColor="Black" VerticalOptions="Center"/>
+                <Image Source="https://raw.githubusercontent.com/Art-Institute-of-Chicago/template/master/aic-logo.gif" 
+                       WidthRequest="50" HeightRequest="50" Aspect="AspectFit"/>
+            </FlexLayout>
+
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                <Entry x:Name="ExhibitionNameEntry" Placeholder="Exhibition Name" TextColor="Black" PlaceholderColor="Gray" Grid.Column="0"/>
+                <Button Text="Search" Clicked="OnSearchExhibitionsClicked" BackgroundColor="#6200EE" TextColor="White" Grid.Column="1"/>
+            </Grid>
+
+            <VerticalStackLayout x:Name="EmptyExhibitionsView" HorizontalOptions="Center" VerticalOptions="Center" Padding="50" Spacing="10">
+                <Label Text="No available exhibitions" FontSize="18" FontAttributes="Bold" TextColor="Black" HorizontalTextAlignment="Center"/>
+                <Label Text="Try searching for one to get started" FontSize="14" TextColor="Gray" HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout x:Name="ExhibitionsContainer" BindableLayout.ItemsSource="{Binding Datums}" Spacing="12">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="local:ExhibitionData">
+                        <Frame Padding="20" CornerRadius="16" HasShadow="True" BorderColor="#E0E0E0" BackgroundColor="White">
+                            <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center">
+
+                                <VerticalStackLayout WidthRequest="250" Spacing="4">
+                                    <Label Text="{Binding Title}" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
+                                    <Label Text="{Binding FormattedDate}" FontSize="13" TextColor="Gray"/>
+                                    <Label Text="{Binding ConfidenceScoreText}" FontSize="13" TextColor="Black"/>
+                                </VerticalStackLayout>
+
+                                <Button Text="View More" Clicked="OnViewMoreClicked" CommandParameter="{Binding .}" 
+                                        VerticalOptions="Center" BackgroundColor="#6200EE" TextColor="White"/>
+                            </FlexLayout>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
